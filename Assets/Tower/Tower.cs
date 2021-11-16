@@ -5,8 +5,15 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
     [SerializeField] int cost = 75;
+    [SerializeField] float buildDelay = 1f;
 
-    public bool CreateTower(Tower tower, Vector3 position)
+
+	void Start()
+	{
+        StartCoroutine(Build());
+	}
+
+	public bool CreateTower(Tower tower, Vector3 position)
     {
         Bank bank = FindObjectOfType<Bank>();
         
@@ -23,5 +30,27 @@ public class Tower : MonoBehaviour
         }
 
         return false;
+    }
+
+    IEnumerator Build() // add build time to tower
+	{
+        foreach(Transform child in transform) // disables both child and grandchild of the object
+		{
+            child.gameObject.SetActive(false);
+            foreach(Transform grandchild in child)
+			{
+                grandchild.gameObject.SetActive(false);
+			}
+		}
+
+        foreach (Transform child in transform) // enables both child and grandchild of the object
+        {
+            child.gameObject.SetActive(true);
+            yield return new WaitForSeconds(buildDelay);
+            foreach (Transform grandchild in child)
+            {
+                grandchild.gameObject.SetActive(true);
+            }
+        }
     }
 }

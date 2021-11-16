@@ -11,6 +11,7 @@ public class Tile : MonoBehaviour
 
     GridManager gridManager;
     Pathfinder pathfinder;
+
     Vector2Int coordinates = new Vector2Int();
 
     void Awake()

@@ -14,13 +14,14 @@ public class Pathfinder : MonoBehaviour
     Node destinationNode;
     Node currentSearchNode;
     
-    Queue<Node> frontier = new Queue<Node>();
-    Dictionary<Vector2Int, Node> reached = new Dictionary<Vector2Int, Node>();
+    Queue<Node> frontier = new Queue<Node>(); // creates a queue
 
-    Vector2Int[] directions = { Vector2Int.right, Vector2Int.left, Vector2Int.up, Vector2Int.down };
+    Dictionary<Vector2Int, Node> reached = new Dictionary<Vector2Int, Node>(); // creates a dictionary for all reached nodes
+
+    Vector2Int[] directions = { Vector2Int.right, Vector2Int.left, Vector2Int.up, Vector2Int.down }; // creates a directions array
 
     GridManager gridManager;
-    Dictionary<Vector2Int, Node> grid = new Dictionary<Vector2Int, Node>();
+    Dictionary<Vector2Int, Node> grid = new Dictionary<Vector2Int, Node>(); // creates a dictionary for the grid
 
     void Awake()
     {
@@ -80,15 +81,15 @@ public class Pathfinder : MonoBehaviour
         startNode.isWalkable = true;
         destinationNode.isWalkable = true;
 
-        frontier.Clear();
-        reached.Clear();
+        frontier.Clear(); // clear previous frontier queue
+        reached.Clear(); // clear previous reached dictionary
 
         bool isRunning = true;
 
-        frontier.Enqueue(grid[coordinates]);
-        reached.Add(coordinates, grid[coordinates]);
+        frontier.Enqueue(grid[coordinates]); // add coordinates to queue
+        reached.Add(coordinates, grid[coordinates]); // add coordinates to dictionary
 
-        while(frontier.Count > 0 && isRunning)
+        while(frontier.Count > 0 && isRunning) 
         {
             currentSearchNode = frontier.Dequeue();
             currentSearchNode.isExplored = true;

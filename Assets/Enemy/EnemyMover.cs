@@ -26,7 +26,7 @@ public class EnemyMover : MonoBehaviour
         pathfinder = FindObjectOfType<Pathfinder>();
     }
 
-    void RecalculatePath(bool resetPath)
+    void RecalculatePath(bool resetPath) // if old path is blocked will calculate new path
     {
         Vector2Int coordinates = new Vector2Int();
 
@@ -40,8 +40,8 @@ public class EnemyMover : MonoBehaviour
 		}
 
         StopAllCoroutines();
-        path.Clear();
-        path = pathfinder.GetNewPath(coordinates);
+        path.Clear(); // clear old path
+        path = pathfinder.GetNewPath(coordinates); // get new path
         StartCoroutine(FollowPath());
     }
 

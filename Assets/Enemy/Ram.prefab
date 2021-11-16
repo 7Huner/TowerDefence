@@ -51,6 +51,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -128,7 +129,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b1584ec732e6aa4ba9c88c2d4a15002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: []
   speed: 0.5
 --- !u!65 &-3396775281884943018
 BoxCollider:
@@ -155,8 +155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3927679a94c974e4bb70f750e84057aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHitPoints: 3
-  difficultyRamp: 5
+  maxHitPoints: 2
+  difficultyRamp: 4
 --- !u!114 &-2997265570297890518
 MonoBehaviour:
   m_ObjectHideFlags: 0

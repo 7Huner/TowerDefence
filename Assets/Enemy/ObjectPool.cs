@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO: change pool Array to a list so you can add to pool
+
 public class ObjectPool : MonoBehaviour
 {
     [SerializeField] GameObject enemyPrefab;
@@ -20,7 +22,7 @@ public class ObjectPool : MonoBehaviour
         StartCoroutine(SpawnEnemy());
     }
 
-    void PopulatePool()
+    void PopulatePool() // populate empty game object with prefab enemies and disables them
     {        
         pool = new GameObject[poolSize];
 
@@ -30,6 +32,9 @@ public class ObjectPool : MonoBehaviour
             pool[i].SetActive(false);
         }
     }
+
+    // TODO: call a public method after a fixed time or amount of enemies killed 
+    // that will add a new enemy to the pool
 
     void EnableObjectInPool()
     {

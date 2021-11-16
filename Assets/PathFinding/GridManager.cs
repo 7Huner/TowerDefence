@@ -8,6 +8,8 @@ public class GridManager : MonoBehaviour
     Dictionary<Vector2Int, Node> grid = new Dictionary<Vector2Int, Node>();
     public Dictionary<Vector2Int, Node> Grid { get { return grid; } }
 
+    int unityGridSettings = 10;
+
     void Awake()
     {
         CreateGrid();
@@ -44,8 +46,8 @@ public class GridManager : MonoBehaviour
     public Vector2Int GetCoordinatesFromPosition(Vector3 position)
     {
         Vector2Int coordinates = new Vector2Int();
-        coordinates.x = Mathf.RoundToInt(position.x / UnityEditor.EditorSnapSettings.move.x);
-        coordinates.y = Mathf.RoundToInt(position.z / UnityEditor.EditorSnapSettings.move.z);
+        coordinates.x = Mathf.RoundToInt(position.x / unityGridSettings);
+        coordinates.y = Mathf.RoundToInt(position.z / unityGridSettings);
 
         return coordinates;
     }
@@ -53,8 +55,8 @@ public class GridManager : MonoBehaviour
     public Vector3 GetPositionFromCoordinates(Vector2Int coordinates)
     {
         Vector3 position = new Vector3();
-        position.x = coordinates.x * UnityEditor.EditorSnapSettings.move.x;
-        position.z = coordinates.y * UnityEditor.EditorSnapSettings.move.z;
+        position.x = coordinates.x * unityGridSettings;
+        position.z = coordinates.y * unityGridSettings;
 
         return position;
     }
