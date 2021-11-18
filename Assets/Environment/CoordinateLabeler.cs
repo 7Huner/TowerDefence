@@ -76,8 +76,8 @@ public class CoordinateLabeler : MonoBehaviour
 
     void DisplayCoordinates() 
     {
-        coordinates.x = Mathf.RoundToInt(transform.parent.position.x / unityGridSetting);
-        coordinates.y = Mathf.RoundToInt(transform.parent.position.z / unityGridSetting);
+        coordinates.x = Mathf.RoundToInt(transform.parent.position.x / unityGridSettings);
+        coordinates.y = Mathf.RoundToInt(transform.parent.position.z / unityGridSettings);
 
         label.text = coordinates.x + "," + coordinates.y;
     }

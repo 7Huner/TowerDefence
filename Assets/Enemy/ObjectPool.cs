@@ -6,11 +6,12 @@ using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
-    [SerializeField] GameObject enemyPrefab;
-    [SerializeField] [Range(0, 50)] int poolSize = 5;
-    [SerializeField] [Range(0.1f, 30f)] float spawnTimer = 1f;
-    
-    GameObject[] pool;
+    [SerializeField] GameObject objectToPool;
+ 	[SerializeField] List<GameObject> pooledObjects;
+    [SerializeField] int amountToPool = 5;
+	[SerializeField] [Range(0.1f, 30f)] float spawnTimer = 1f;
+
+
 
     void Awake()
     {
@@ -22,14 +23,23 @@ public class ObjectPool : MonoBehaviour
         StartCoroutine(SpawnEnemy());
     }
 
-    void PopulatePool() // populate empty game object with prefab enemies and disables them
-    {        
-        pool = new GameObject[poolSize];
+    public void AddToPool()
+	{
+        GameObject tmp = Instantiate(objectToPool, transform);
+        tmp.SetActive(false);
+        pooledObjects.Add(tmp);
+        amountToPool++;
+	}
 
-        for(int i = 0; i < pool.Length; i++)
+    void PopulatePool() // populate empty game object with prefab enemies and disables them
+    {
+        pooledObjects = new List<GameObject>();
+        GameObject tmp;
+        for (int i = 0; i < amountToPool; i++)
         {
-            pool[i] = Instantiate(enemyPrefab, transform);
-            pool[i].SetActive(false);
+            tmp = Instantiate(objectToPool, transform);
+            tmp.SetActive(false);
+            pooledObjects.Add(tmp);
         }
     }
 
@@ -38,14 +48,14 @@ public class ObjectPool : MonoBehaviour
 
     void EnableObjectInPool()
     {
-        for(int i = 0; i < pool.Length; i++)
-        {
-            if(pool[i].activeInHierarchy == false)
-            {
-                pool[i].SetActive(true);
+        for(int i = 0; i < amountToPool; i++)
+		{
+			if (pooledObjects[i].activeInHierarchy == false)
+			{
+                pooledObjects[i].SetActive(true);
                 return;
-            }
-        }
+			}
+		}
     }
 
     IEnumerator SpawnEnemy()

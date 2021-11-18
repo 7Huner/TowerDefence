@@ -2503,7 +2503,7 @@ PrefabInstance:
       objectReference: {fileID: 62893395}
     - target: {fileID: 642627578, guid: d0f96d14dbe9c1445a7bf623a31fbabf, type: 3}
       propertyPath: startingBalance
-      value: 150
+      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: 8560490588914411254, guid: d0f96d14dbe9c1445a7bf623a31fbabf, type: 3}
       propertyPath: m_RootOrder
@@ -14770,6 +14770,51 @@ Transform:
   m_Father: {fileID: 1469598889}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1222315394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1222315396}
+  - component: {fileID: 1222315395}
+  m_Layer: 0
+  m_Name: KillCounter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1222315395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222315394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb59061720ecc442895bbc3c1b23a06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  killCount: 0
+  totalKillCount: 0
+--- !u!4 &1222315396
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222315394}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1222538723
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26284,46 +26329,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1866108522848566833, guid: 8c519b1da7d980646916090470f0099f, type: 3}
-      propertyPath: m_fontSize
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 1866108522848566833, guid: 8c519b1da7d980646916090470f0099f, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: f3feb0ce8cd3b6a44af3691ecc3748a6, type: 2}
-    - target: {fileID: 1866108522848566833, guid: 8c519b1da7d980646916090470f0099f, type: 3}
-      propertyPath: m_fontStyle
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1866108522848566833, guid: 8c519b1da7d980646916090470f0099f, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1866108522848566833, guid: 8c519b1da7d980646916090470f0099f, type: 3}
-      propertyPath: m_fontColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1866108522848566833, guid: 8c519b1da7d980646916090470f0099f, type: 3}
-      propertyPath: m_fontColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1866108522848566833, guid: 8c519b1da7d980646916090470f0099f, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 1866108522848566833, guid: 8c519b1da7d980646916090470f0099f, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 4639205685425354777, guid: f3feb0ce8cd3b6a44af3691ecc3748a6, type: 2}
-    - target: {fileID: 1866108522848566833, guid: 8c519b1da7d980646916090470f0099f, type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1866108522848566833, guid: 8c519b1da7d980646916090470f0099f, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4278255615
-      objectReference: {fileID: 0}
     - target: {fileID: 1866108524281652768, guid: 8c519b1da7d980646916090470f0099f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -26429,6 +26434,14 @@ PrefabInstance:
       propertyPath: spawnTimer
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4284206666006875296, guid: 8da67125488b02b4e97d5436887b5e4e, type: 3}
+      propertyPath: amountToPool
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4284206666006875296, guid: 8da67125488b02b4e97d5436887b5e4e, type: 3}
+      propertyPath: objectToPool
+      value: 
+      objectReference: {fileID: 5040643765344069697, guid: b940df629b09f434dbb9fd487257db6c, type: 3}
     - target: {fileID: 4284206666006875297, guid: 8da67125488b02b4e97d5436887b5e4e, type: 3}
       propertyPath: m_RootOrder
       value: 6

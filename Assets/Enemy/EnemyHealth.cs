@@ -11,7 +11,10 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] int difficultyRamp = 1;
 
     int currentHitPoints = 0;
+
     Enemy enemy;
+    KillCounter killCounter;
+
 
 
     void OnEnable()
@@ -22,6 +25,7 @@ public class EnemyHealth : MonoBehaviour
     void Start()
     {
         enemy = GetComponent<Enemy>();
+        killCounter = FindObjectOfType<KillCounter>();
     }
 
     void OnParticleCollision(GameObject other) 
@@ -36,6 +40,7 @@ public class EnemyHealth : MonoBehaviour
         if(currentHitPoints <= 0)
         {
             gameObject.SetActive(false);
+            killCounter.IncreaseCount();
             maxHitPoints += difficultyRamp;
             enemy.RewardGold();
         }
